@@ -13,43 +13,56 @@ import utilities.PageUtility;
 
 public class SubCategoryPage {
 	WebDriver driver;
-	public SubCategoryPage(WebDriver driver)
-	{
-		this.driver=driver;
-		PageFactory.initElements(driver , this);
+
+	public SubCategoryPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-sub-category' and @class=' nav-link']")private WebElement moreinfo;
-	@FindBy(xpath="//a[@onclick='click_button(1)']")private WebElement newbutton;
-	@FindBy(xpath="//select[@id='cat_id']")private WebElement category;
-	@FindBy(xpath="//input[@id='subcategory']")private WebElement subcategory;
-	@FindBy(xpath="//input[@id='main_img']")private WebElement image;
-	@FindBy(xpath="//button[@type='submit']")private WebElement savebutton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")private WebElement alert;
-	
-	public void SubCatmoreInfo() {
-		moreinfo.click();
-	}
-	public void newButton() {
+
+	@FindBy(xpath = "//a[@onclick='click_button(1)']")
+	private WebElement newbutton;
+	@FindBy(xpath = "//select[@id='cat_id']")
+	private WebElement category;
+	@FindBy(xpath = "//input[@id='subcategory']")
+	private WebElement subcategory;
+	@FindBy(xpath = "//input[@id='main_img']")
+	private WebElement image;
+	@FindBy(xpath = "//button[@type='submit']")
+	private WebElement savebutton;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	private WebElement alert;
+
+	public SubCategoryPage newButton() {
 		newbutton.click();
+		return this;
 	}
-	public void addCategory() {
-		PageUtility pageutility=new PageUtility();
-		//pageutility.selectByVisibleText(category, "Appliances");
+
+	public SubCategoryPage addCategory() {
+		PageUtility pageutility = new PageUtility();
+		// pageutility.selectByVisibleText(category, "Appliances");
 		pageutility.selectByVisibleText(category, "cate1");
+		return this;
 	}
-	public void addSubcategory(String name) {
+
+	public SubCategoryPage addSubcategory(String name) {
 		subcategory.sendKeys(name);
+		return this;
 	}
-	public void addImage() throws AWTException {
-		FileUploadUtility fileutility=new FileUploadUtility();
-		//fileutility.fileuploadUsingRobotclass(image, Constants.FridgeIMG);
+
+	public SubCategoryPage addImage() throws AWTException {
+		FileUploadUtility fileutility = new FileUploadUtility();
+		// fileutility.fileuploadUsingRobotclass(image, Constants.FridgeIMG);
 		fileutility.fileUploadUsingSendkeys(image, Constants.bouquet);
+		return this;
 	}
-	public void save() {
-		//savebutton.click();
-		PageUtility pageutility=new PageUtility();
-		pageutility.clickElementUsingJSExecutor(driver,savebutton);
+
+	public SubCategoryPage save() {
+		// savebutton.click();
+		PageUtility pageutility = new PageUtility();
+		pageutility.clickElementUsingJSExecutor(driver, savebutton);
+		return this;
 	}
+
 	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();
 	}

@@ -2,9 +2,11 @@ package testScripts;
 
 import java.io.IOException;
 
-import org.testng.AssertJUnit;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -16,11 +18,11 @@ public class LoginTest extends Base {
 		String usernamevalue=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(1, 1,"LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserName(usernamevalue);
-		loginpage.enterPassword(passwordvalue);
-		loginpage.signIn();
+		loginpage.enterUserName(usernamevalue).enterPassword(passwordvalue).signIn();//chaining of method
+		//loginpage.enterPassword(passwordvalue);
+		//loginpage.signIn();
 		boolean isHomePageAvailable=loginpage.isHomePageDisplayed();
-		AssertJUnit.assertTrue(isHomePageAvailable);
+		Assert.assertTrue(isHomePageAvailable,Constants.LOGINPAGEVALIDCREDENTIALS);
 	}
 	
 	@Test
@@ -30,11 +32,11 @@ public class LoginTest extends Base {
 		String usernamevalue=ExcelUtility.getStringData(2, 0, "LoginPage");
 		String passwordvalue=ExcelUtility.getStringData(2, 1,"LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserName(usernamevalue);
-		loginpage.enterPassword(passwordvalue);
-		loginpage.signIn();
+		loginpage.enterUserName(usernamevalue).enterPassword(passwordvalue).signIn();
+		//loginpage.enterPassword(passwordvalue);
+		//loginpage.signIn();
 		boolean alertmessage=loginpage.isAlertDisplayed();
-		AssertJUnit.assertTrue(alertmessage);
+		Assert.assertTrue(alertmessage,Constants.INVALIDUSERNAMEALERT);
 	}
 	
 	@Test
@@ -42,27 +44,30 @@ public class LoginTest extends Base {
 		//String usernamevalue="admin";
 		//String passwordvalue="12345";
 		String usernamevalue=ExcelUtility.getStringData(3, 0, "LoginPage");
-		String passwordvalue=ExcelUtility.getIntegerData(3, 1,"LoginPage");
+		String passwordvalue=ExcelUtility.getStringData(3, 1,"LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserName(usernamevalue);
-		loginpage.enterPassword(passwordvalue);
-		loginpage.signIn();
+		loginpage.enterUserName(usernamevalue).enterPassword(passwordvalue).signIn();
+		//loginpage.enterPassword(passwordvalue);
+		//loginpage.signIn();
 		boolean alertmessage=loginpage.isAlertDisplayed();
-		AssertJUnit.assertTrue(alertmessage);
+		Assert.assertTrue(alertmessage,Constants.INVALIDPASSWORDALERT);
 	}
 	
-	@Test
-	public void  verifyTheUserIsAbleToLoginUsingInvalidCredentials() throws IOException {
+	@Test(dataProvider ="LoginProvider")
+	public void  verifyTheUserIsAbleToLoginUsingInvalidCredentials(String usernamevalue,String passwordvalue) throws IOException {
 		//String usernamevalue="User";
 		//String passwordvalue="12345";
-		String usernamevalue=ExcelUtility.getStringData(4, 0, "LoginPage");
-		String passwordvalue=ExcelUtility.getIntegerData(4, 1,"LoginPage");
+		//String usernamevalue=ExcelUtility.getStringData(4, 0, "LoginPage");
+		//String passwordvalue=ExcelUtility.getStringData(4, 1,"LoginPage");
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUserName(usernamevalue);
-		loginpage.enterPassword(passwordvalue);
-		loginpage.signIn();
+		loginpage.enterUserName(usernamevalue).enterPassword(passwordvalue).signIn();
+		//loginpage.enterPassword(passwordvalue);
+		//loginpage.signIn();
 		boolean alertmessage=loginpage.isAlertDisplayed();
-		AssertJUnit.assertTrue(alertmessage);
+		Assert.assertTrue(alertmessage,Constants.INVALIDCREDENTIALSALERT);
 	}
-
+	@DataProvider(name="LoginProvider")
+	public Object[][] getDataFromTestData() throws IOException{
+		return new Object[][] {{ExcelUtility.getStringData(4, 0,"LoginPage"),ExcelUtility.getStringData(4,1,"LoginPage")}};
+	}
 }

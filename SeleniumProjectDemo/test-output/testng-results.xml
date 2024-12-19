@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-10T20:48:43 IST" name="Suite" finished-at="2024-12-10T20:49:07 IST" duration-ms="24411">
+  <suite started-at="2024-12-19T09:22:36 IST" name="MultiBrowserTesting" finished-at="2024-12-19T09:22:59 IST" duration-ms="23641">
     <groups>
       <group name="Regression">
-        <method signature="LoginTest.verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@6736fa8d]" name="verifyTheUserIsAbleToLoginUsingValidCredentials" class="testScripts.LoginTest"/>
+        <method signature="LoginTest.verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@2b72cb8a]" name="verifyTheUserIsAbleToLoginUsingValidCredentials" class="testScripts.LoginTest"/>
+        <method signature="LoginTest.verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@5c669da8]" name="verifyTheUserIsAbleToLoginUsingValidCredentials" class="testScripts.LoginTest"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2024-12-10T20:48:43 IST" name="Test" finished-at="2024-12-10T20:49:07 IST" duration-ms="24411">
+    <test started-at="2024-12-19T09:22:36 IST" name="EdgeTest" finished-at="2024-12-19T09:22:59 IST" duration-ms="23337">
       <class name="testScripts.LoginTest">
-        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.LoginTest@6736fa8d]" started-at="2024-12-10T20:48:43 IST" name="initializeBrowser" finished-at="2024-12-10T20:49:02 IST" duration-ms="18849" status="PASS">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.LoginTest@5c669da8]" started-at="2024-12-19T09:22:36 IST" name="initializeBrowser" finished-at="2024-12-19T09:22:53 IST" duration-ms="16767" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeBrowser -->
+        <test-method signature="verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@5c669da8]" started-at="2024-12-19T09:22:53 IST" name="verifyTheUserIsAbleToLoginUsingValidCredentials" description="Login with valid username and password" finished-at="2024-12-19T09:22:58 IST" duration-ms="5168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTheUserIsAbleToLoginUsingValidCredentials -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testScripts.LoginTest@5c669da8]" started-at="2024-12-19T09:22:58 IST" name="browserQuit" finished-at="2024-12-19T09:22:59 IST" duration-ms="1285" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTheUserIsAbleToLoginUsingValidCredentials status=SUCCESS method=LoginTest.verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@5c669da8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+      </class> <!-- testScripts.LoginTest -->
+    </test> <!-- EdgeTest -->
+    <test started-at="2024-12-19T09:22:36 IST" name="ChromeTest" finished-at="2024-12-19T09:22:59 IST" duration-ms="23641">
+      <class name="testScripts.LoginTest">
+        <test-method is-config="true" signature="initializeBrowser(java.lang.String)[pri:0, instance:testScripts.LoginTest@2b72cb8a]" started-at="2024-12-19T09:22:36 IST" name="initializeBrowser" finished-at="2024-12-19T09:22:54 IST" duration-ms="18099" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -21,15 +52,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@6736fa8d]" started-at="2024-12-10T20:49:02 IST" name="verifyTheUserIsAbleToLoginUsingValidCredentials" description="Login with valid username and password" finished-at="2024-12-10T20:49:06 IST" duration-ms="4634" status="PASS">
+        <test-method signature="verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@2b72cb8a]" started-at="2024-12-19T09:22:54 IST" name="verifyTheUserIsAbleToLoginUsingValidCredentials" description="Login with valid username and password" finished-at="2024-12-19T09:22:58 IST" duration-ms="3809" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTheUserIsAbleToLoginUsingValidCredentials -->
-        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testScripts.LoginTest@6736fa8d]" started-at="2024-12-10T20:49:06 IST" name="browserQuit" finished-at="2024-12-10T20:49:07 IST" duration-ms="795" status="PASS">
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testScripts.LoginTest@2b72cb8a]" started-at="2024-12-19T09:22:58 IST" name="browserQuit" finished-at="2024-12-19T09:22:59 IST" duration-ms="1584" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyTheUserIsAbleToLoginUsingValidCredentials status=SUCCESS method=LoginTest.verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@6736fa8d] output={null}]]]>
+                <![CDATA[[TestResult name=verifyTheUserIsAbleToLoginUsingValidCredentials status=SUCCESS method=LoginTest.verifyTheUserIsAbleToLoginUsingValidCredentials()[pri:0, instance:testScripts.LoginTest@2b72cb8a] output={null}]]]>
               </value>
             </param>
           </params>
@@ -37,6 +68,6 @@
           </reporter-output>
         </test-method> <!-- browserQuit -->
       </class> <!-- testScripts.LoginTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- ChromeTest -->
+  </suite> <!-- MultiBrowserTesting -->
 </testng-results>

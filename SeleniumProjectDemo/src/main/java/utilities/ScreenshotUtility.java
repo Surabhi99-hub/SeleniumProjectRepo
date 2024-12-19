@@ -17,7 +17,7 @@ public class ScreenshotUtility {
 		File screenShot = scrShot.getScreenshotAs(OutputType.FILE); // screenshot will store in temporary path
 																	// "screenShot
 		File f1 = new File(System.getProperty("user.dir") + "\\OutputScreenshots");// Generating folder using Java
-																				// (user.dir) automatically folder
+																					// (user.dir) automatically folder
 		if (!f1.exists()) {
 			f1.mkdirs();// mkdir --> will create folder using java make directory
 		}
